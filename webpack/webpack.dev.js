@@ -20,13 +20,17 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(css|html)$/,
+                test: /\.(css)$/,
                 use: ['raw-loader']
+            },
+            {
+                test: /\.(html)$/,
+                use: 'html-loader'
             },
             {
                 test: /\.ts$/,
                 exclude: /node_modules/,
-                use: 'ts-loader' // TODO: add babel-loader?
+                use: ['ts-loader'] // TODO: add babel-loader?
             }
         ]
     },
