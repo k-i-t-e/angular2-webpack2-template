@@ -21,7 +21,13 @@ module.exports = {
         rules: [
             {
                 test: /\.(css)$/,
-                use: ['raw-loader']
+                exclude: [/node_modules/],
+                use: 'raw-loader',
+            },
+            { //this rule will only be used for any vendors
+                test: /\.(css)$/,
+                use: ['style-loader', 'css-loader'],
+                include: [/node_modules/]
             },
             {
                 test: /\.(html)$/,
